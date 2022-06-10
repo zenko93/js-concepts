@@ -128,18 +128,18 @@
 // let sum = (a) => (b) => (c) => (d) => (e) => a + b + c + d + e;
 // let add = (a) => (b) => () => a + b;
 
-// const add = (a) => {
-//     let sum = a;
-//     const func = (b) => {
-//         if (b) {
-//             sum += b;
-//             return func;
-//         } else {
-//             return sum;
-//         }
-//     };
-//     return func;
-// };
+const add = (a) => {
+    let sum = a;
+    const func = (b) => {
+        if (b) {
+            sum += b;
+            return func;
+        } else {
+            return sum;
+        }
+    };
+    return func;
+};
 
 // const add = (a) => {
 //     let sum = a;
@@ -150,7 +150,7 @@
 //     func.valueOf = () => sum;
 //     return func;
 // };
-console.log(add(2)(3)); // 5;
+console.log(add(2)(3)()); // 5;
 // console.log(add(1)(2)());
 
 // var a={},
@@ -181,20 +181,20 @@ console.log(add(2)(3)); // 5;
 //     acc.concat(Array.isArray(cur) ? sortArr(cur) : cur), []);
 // console.log(sortArr(arr));
 
-function a (num) {
-    let count = num
-    return function() {
-        return count = count + 1
-    }
-}
-
-let counter1 = a(3)
-console.log(counter1())
-console.log(counter1())
-
-let counter2 = a(1)
-console.log(counter2())
-console.log(counter2())
+// function a (num) {
+//     let count = num
+//     return function() {
+//         return count = count + 1
+//     }
+// }
+//
+// let counter1 = a(3)
+// console.log(counter1())
+// console.log(counter1())
+//
+// let counter2 = a(1)
+// console.log(counter2())
+// console.log(counter2())
 
 // function foo() {
 //     var x
@@ -205,11 +205,11 @@ console.log(counter2())
 // console.log(typeof foo()); // string
 // console.log(typeof Number) // function
 
-console.log(1);
-setTimeout(() => console.log(2), 1000);
-setTimeout(() => console.log(3));
-Promise.resolve(true).then(() => console.log(4));
-console.log(5);
+// console.log(1);
+// setTimeout(() => console.log(2), 1000);
+// setTimeout(() => console.log(3));
+// Promise.resolve(true).then(() => console.log(4));
+// console.log(5);
 // 1 5 4 3 2
 // let a = {
 //     b: () => console.log('yo',this)
@@ -314,18 +314,18 @@ console.log(5);
 // console.log(c.b); //undefined
 
 ///////////////////////////////////////// Unique items in array
-const arr = ['a','a','b','b','c','c'];
-function unique(arr) {
-    return [...new Set(arr)];
-}
-console.log(unique(arr));
-
-function unique2(arr) {
-    const result = [];
-    arr.forEach(item => !result.includes(item) ? result.push(item) : null);
-    return result;
-}
-console.log(unique2(arr));
+// const arr = ['a','a','b','b','c','c'];
+// function unique(arr) {
+//     return [...new Set(arr)];
+// }
+// console.log(unique(arr));
+//
+// function unique2(arr) {
+//     const result = [];
+//     arr.forEach(item => !result.includes(item) ? result.push(item) : null);
+//     return result;
+// }
+// console.log(unique2(arr));
 
 ///////////////////// Count the same items in array
 // const arr2 = ['a','a','b','b','c','c'];
@@ -409,51 +409,51 @@ console.log(unique2(arr));
 
 
 /////////////////////////////////////////////// Reverse
-function reverse(...arg) {
-    return arg.reverse().join('')
-}
-console.log(reverse(1, 2, 3));
+// function reverse(...arg) {
+//     return arg.reverse().join('')
+// }
+// console.log(reverse(1, 2, 3));
 
-function reverse() {
-    let result = '';
+// function reverse() {
+//     let result = '';
+//
+//     for (let i = arguments.length - 1; i >= 0; i--) {
+//         result += arguments[i];
+//     }
+//
+//     return result;
+// }
+// console.log(reverse(1, 2, 3));
 
-    for (let i = arguments.length - 1; i >= 0; i--) {
-        result += arguments[i];
-    }
 
-    return result;
-}
-console.log(reverse(1, 2, 3));
-
-
-var a = 1
-var fn = function() {
-    setTimeout(function timeout() {
-        console.log(`a ${a}`);
-        a = 2;
-    }, 0);
-
-    var p = new Promise(function(resolve, reject) {
-        console.log(`b ${a}`);
-        a = 3;
-        resolve();
-    })
-
-    p.then(function() {
-        console.log(`c ${a}`);
-        a = 4;
-    }).catch(function() {
-        console.log(`d ${a}`);
-        a = 5;
-    }).then(function() {
-        console.log(`e ${a}`);
-        a = 6;
-    })
-
-    console.log(`f ${a}`);
-}
-
-fn();
+// var a = 1
+// var fn = function() {
+//     setTimeout(function timeout() {
+//         console.log(`a ${a}`);
+//         a = 2;
+//     }, 0);
+//
+//     var p = new Promise(function(resolve, reject) {
+//         console.log(`b ${a}`);
+//         a = 3;
+//         resolve();
+//     })
+//
+//     p.then(function() {
+//         console.log(`c ${a}`);
+//         a = 4;
+//     }).catch(function() {
+//         console.log(`d ${a}`);
+//         a = 5;
+//     }).then(function() {
+//         console.log(`e ${a}`);
+//         a = 6;
+//     })
+//
+//     console.log(`f ${a}`);
+// }
+//
+// fn();
 // // b 1 | f 3 | c 3 | e 4 | a 6
 
 // function promise(item) {
@@ -511,25 +511,25 @@ fn();
 //
 // console.log(composed(3)); // 20
 // console.log([1, 2, 6].map(composed)); // [16, 18, 26]
-
-let arr = [1, 2 ,3 ,4];
-let arr2 = [3, 4, 5, 6];
+//
+// let arr = [1, 2 ,3 ,4];
+// let arr2 = [3, 4, 5, 6];
 
 // function repeat(arr, arr2) {
 //     return arr.filter(item => arr2.includes(item))
 // }
 
-function repeat(arr, arr2) {
-    let result = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr2.length; j++) {
-            if (arr[i] === arr2[j]) {
-                result.push(arr[i]);
-            }
-        }
-    }
-    return result
-}
-
-console.log(repeat(arr, arr2))
+// function repeat(arr, arr2) {
+//     let result = [];
+//
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = 0; j < arr2.length; j++) {
+//             if (arr[i] === arr2[j]) {
+//                 result.push(arr[i]);
+//             }
+//         }
+//     }
+//     return result
+// }
+//
+// console.log(repeat(arr, arr2))

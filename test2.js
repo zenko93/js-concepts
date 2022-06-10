@@ -54,15 +54,13 @@
 // let counter3 = new Sum(6)
 // console.log(counter3.double())
 
-const user = {
-    fullName: 'Иван Человеков'
-}
-
-function getName() {
-    console.log(this.fullName);
-}
-
-
+// const user = {
+//     fullName: 'Иван Человеков'
+// }
+//
+// function getName() {
+//     console.log(this.fullName);
+// }
 
 // function myBind(context, ...rest) {
 //     let myThis = this;
@@ -129,3 +127,69 @@ function getName() {
 // getName.myApply(user)
 // console.log(user)
 
+// var a = 5;
+//
+// function f() {
+//     console.log(a)
+//     if (a) {
+//         console.log(a);
+//         var a = 10;
+//     }
+// }
+//
+// f();
+
+// let inc = function counter() {
+//     let num = 0;
+//
+//     return function () {
+//         return console.log(num += 1);
+//     }
+// }()
+//
+// inc() // 1
+// inc() // 2
+
+// const obj = {
+//     a: 42,
+//     say: function () {
+//         setTimeout(function() {
+//            console.log(this.a)
+//         }.bind(this), 1000)
+//     }
+// }
+//
+// obj.say()
+
+// const ex = (value, sum) => console.log(sum + value);
+// const fx = ex.bind(null, 10);
+//
+// ex(12, 7) // 19
+// fx(7, 12) // 17
+
+// let words = ['grapefruit', 'orange', 'banana', 'banana', 'grapefruit', 'banana'];
+//
+// let wordsMap = words.reduce((pre,curr) => (pre[curr] = pre[curr] + 1 || 1, pre) , {})
+// let result = Object.keys(wordsMap).sort((a, b) => wordsMap[b] - wordsMap[a])
+// console.log(result)
+
+function sum(a, b) {
+    return a + b;
+}
+
+function mul(a, b) {
+    return a * b;
+}
+
+function calculate(func) {
+
+    return function (a) {
+
+        return function (b) {
+            return func(a, b)
+        }
+    }
+}
+
+console.log(calculate(sum)(3)(2))
+console.log(calculate(mul)(3)(2))
